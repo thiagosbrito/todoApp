@@ -13,9 +13,14 @@
 </div>
 
 <ul class="todo-list mt-4">
-  <li class="py-3 px-3 mb-1 shadow-sm" *ngFor="let todo of (todoList | async)">
-    <div class="custom-checkbox">
-      <input type="checkbox" [checked]="todo.completed"> {{todo.description}}
+  <li class="py-3 px-3 mb-1 shadow-sm" *ngFor="let todo of (todoList | async); let index = index">
+    <div class="d-flex flex-row pt-2">
+      <i [ngClass]="{'far text-primary': !todo.completed, 'fas text-success': todo.completed}" class="fa-2x fa-check-circle" (click)="completeTodo(todo)"></i>
+      <span class="flex-grow-1 pl-2">{{todo.description}}</span>
+
+      <!-- TO BE IMPLEMENTED: <button class="btn btn-custom-circle btn-danger align-self-end" (click)="removeTodo(todo)">
+        <i class="far fa-trash-alt"></i>
+      </button> -->
     </div>
   </li>
 </ul>

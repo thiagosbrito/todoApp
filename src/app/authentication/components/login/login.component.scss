@@ -5,6 +5,12 @@ section.login {
   height: 100vh;
   background-color: #0984e3;
   padding: 2.5rem;
+  .invalid-feedback {
+    display: inline-block !important;
+    background-color: #F03;
+    color: #FFF;
+    font-weight: 600;
+  }
   .logo {
     width: 240px;
     height: auto;
@@ -20,7 +26,6 @@ section.login {
     }
   }
   .login-form {
-    margin-top: 2rem;
     padding: 2.5rem;
     background-color: rgba(255, 255, 255, 0.65);
     border-radius: 6px;

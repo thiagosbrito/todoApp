@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
+  errorMessage: any;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   createForm() {
     this.loginForm = this.formBuilder.group({
-      username: ['', { updateOn: 'blur', validators: [Validators.required] }],
+      username: ['', { updateOn: 'blur', validators: [Validators.required, Validators.email] }],
       password: ['', { validators: [Validators.required] }]
     });
   }
@@ -36,7 +37,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['todos', 'list']);
       },
       (error) => {
-        console.log(error);
+        this.errorMessage = error.message;
       }
     );
   }

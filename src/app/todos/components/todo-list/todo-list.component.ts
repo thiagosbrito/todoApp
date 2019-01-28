@@ -51,5 +51,15 @@ export class TodoListComponent implements OnInit {
     this.todosCollection.add(obj);
   }
 
+  removeTodo(todo) {
+    this.todosCollection.doc(todo.id).delete().then(
+      (success) => {
+        console.log(success);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
 }
