@@ -51,4 +51,14 @@ export class AuthenticationService {
     const observable = from(this.fireAuth.auth.createUserWithEmailAndPassword(formData.username, formData.password));
     return observable;
   }
+
+  login(formData) {
+    const observable = from(this.fireAuth.auth.signInWithEmailAndPassword(formData.username, formData.password));
+    return observable;
+  }
+
+  logout() {
+    const observable = from(this.fireAuth.auth.signOut());
+    return observable;
+  }
 }

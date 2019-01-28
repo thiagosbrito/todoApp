@@ -1,0 +1,11 @@
+@import './../../../core/scss/variables';
+
+.todo-list {
+  padding: 0;
+  margin: 0;
+  li {
+    position: relative;
+    background-color: $main-background;
+    border-radius: 4px;
+  }
+}

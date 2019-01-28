@@ -1,0 +1,16 @@
+@import '../../../core/scss/variables';
+
+section.todos {
+  h3 {
+    font-family: $varela;
+    font-size: 26px;
+    text-align: center;
+  }
+  p {
+    text-align: center;
+    color: rgba(#fff, 0.75);
+  }
+  .list-container {
+    border-radius: 4px;
+  }
+}
