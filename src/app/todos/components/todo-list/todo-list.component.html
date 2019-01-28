@@ -1,9 +1,9 @@
 <div class="create-new-todo" *ngIf="showCreateTodo">
-  <form rolw="form">
+  <form role="form" [formGroup]="todoForm">
     <div class="form-group">
       <label for="">Create a new todo</label>
       <div class="input-group">
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" formControlName="todo" required>
         <div class="input-group-append">
           <button class="btn btn-secondary" type="button" (click)="addNewTodo()"><i class="fas fa-plus"></i></button>
         </div>
@@ -12,41 +12,13 @@
   </form>
 </div>
 
-
-
 <ul class="todo-list mt-4">
-  <li class="py-3 px-3 mb-1 shadow-sm">
+  <li class="py-3 px-3 mb-1 shadow-sm" *ngFor="let todo of (todoList | async)">
     <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
+      <input type="checkbox" [checked]="todo.completed"> {{todo.description}}
     </div>
   </li>
-  <li class="py-3 px-3 mb-1 shadow-sm">
-    <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
-    </div>
-  </li>
-  <li class="py-3 px-3 mb-1 shadow-sm">
-    <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
-    </div>
-  </li>
-  <li class="py-3 px-3 mb-1 shadow-sm">
-    <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
-    </div>
-  </li>
-  <li class="py-3 px-3 mb-1 shadow-sm">
-    <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
-    </div>
-  </li>
-  <li class="py-3 px-3 mb-1 shadow-sm">
-    <div class="custom-checkbox">
-      <input type="checkbox"> Todo Item
-    </div>
-  </li>
-
-  <button class="btn btn-primary btn-block p-3 mt-3 shadow-sm" (click)="showCreateTodoForm()">
-    <i class="fas fa-plus"></i> Create a new todo
-  </button>
 </ul>
+<button class="btn btn-primary btn-block p-3 mt-3 shadow-sm" (click)="showCreateTodoForm()">
+  <i class="fas fa-plus"></i> Create a new todo
+</button>
