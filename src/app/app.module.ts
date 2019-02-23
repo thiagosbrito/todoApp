@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SweetAlert2Module } from '@toverux/ngx-sweetalert2';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { environment } from '../environments/environment';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
-    AppRoutingModule
+    AppRoutingModule, ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
