@@ -1,4 +1,5 @@
 @import './../../../core/scss/variables';
+@import '../../../../assets/scss/variables';
 
 .todo-list {
   padding: 0;
@@ -8,4 +9,8 @@
     background-color: $main-background;
     border-radius: 4px;
   }
+}
+
+.create-new-todo {
+  background-color: $cyan;
 }

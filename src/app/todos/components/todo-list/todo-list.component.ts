@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/firestore';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 export interface Todo {
+  id: string;
   description: string;
   uid?: string;
   completed: boolean;
@@ -29,6 +29,7 @@ export class TodoListComponent implements OnInit {
 
   ngOnInit() {
     this.todoList = this.todosCollection.valueChanges();
+    this.todoList.subscribe(todo => console.log(todo));
     this.createTodoForm();
   }
 
@@ -44,11 +45,12 @@ export class TodoListComponent implements OnInit {
 
   addNewTodo() {
     const obj: Todo = {
+      id: btoa(new Date().toISOString()),
       description: this.todoForm.get('todo').value,
       completed: false,
       uid: this._auth.auth.currentUser.uid
     };
-    this.todosCollection.add(obj);
+    this.todosCollection.doc(obj.id).set(obj);
   }
 
   removeTodo(todo) {
@@ -60,6 +62,11 @@ export class TodoListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  completeTodo(todo) {
+    todo.completed = !todo.completed;
+    this.todosCollection.doc(todo.id).set(todo);
   }
 
 }

@@ -1,9 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
-@import "assets/scss/reset";
-@import "assets/scss/variables";
-@import "assets/scss/custom-checkbox";
+@import "assets/scss/index";
 @import "node_modules/bootstrap/scss/bootstrap.scss";
-@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Varela+Round');
 @import "./app/core/scss/buttons";
 
 body {

@@ -1,14 +1,14 @@
 <section class="login d-flex flex-column">
   <div class="logo w-50 mt-2">
     <img src="assets/images/logo-todoApp.png" alt="">
-    <h3 class="welcome mt-4">Welcome to TodoApp</h3>
+    <h3 class="welcome mt-4">TodoApp</h3>
   </div>
 
   <div class="alert alert-danger" role="alert" *ngIf="errorMessage">
     {{errorMessage}}
   </div>
 
-  <div class="login-form"[ngClass]="{'mt-3': !errorMessage, 'mt-2': errorMessage}">
+  <div class="login-form"[ngClass]="{'mt-3': !errorMessage, 'mt-2': errorMessage}" class="p-3 rounded shadow-sm bg-info">
     <form role="form" [formGroup]="loginForm" autocomplete="off" novalidate>
       <div class="form-group" ngCLass="{'is-invalid': loginForm.get('username').invalid}">
         <label for="email">Email:</label>
@@ -29,9 +29,9 @@
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block" [disabled]="loginForm.invalid" type="submit" (click)="submitForm()">Login</button>
-        <button class="btn btn-info btn-block">Login with Facebook</button>
+        <button class="btn btn-default btn-facebook btn-block">Login with Facebook</button>
         <span class="d-block my-3 not-registered">Not registered?</span>
-        <button class="btn btn-success btn-block">Sign up</button>
+        <button class="btn btn-warning btn-block">Sign up</button>
       </div>
     </form>
   </div>

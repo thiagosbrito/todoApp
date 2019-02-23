@@ -1,9 +1,9 @@
-<div class="create-new-todo" *ngIf="showCreateTodo">
+<div class="create-new-todo p-2 shadow-sm rounded" *ngIf="showCreateTodo">
   <form role="form" [formGroup]="todoForm">
     <div class="form-group">
       <label for="">Create a new todo</label>
       <div class="input-group">
-        <input type="text" class="form-control" formControlName="todo" required>
+        <input type="text" class="form-control p-2" formControlName="todo" required>
         <div class="input-group-append">
           <button class="btn btn-secondary" type="button" (click)="addNewTodo()"><i class="fas fa-plus"></i></button>
         </div>
@@ -18,9 +18,9 @@
       <i [ngClass]="{'far text-primary': !todo.completed, 'fas text-success': todo.completed}" class="fa-2x fa-check-circle" (click)="completeTodo(todo)"></i>
       <span class="flex-grow-1 pl-2">{{todo.description}}</span>
 
-      <!-- TO BE IMPLEMENTED: <button class="btn btn-custom-circle btn-danger align-self-end" (click)="removeTodo(todo)">
+      <button class="btn btn-custom-circle btn-danger align-self-end" (click)="removeTodo(todo)">
         <i class="far fa-trash-alt"></i>
-      </button> -->
+      </button>
     </div>
   </li>
 </ul>
